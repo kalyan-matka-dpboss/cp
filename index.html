@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="Join Option Trader on Telegram for stock market insights, trading setups, market updates, and educational content.">
+  <title>Option Trader | Trading Insights & Market Updates</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2091893131451980');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --blue: #229ed9;
+      --green: #39d98a;
+      --white: #f4f7ff;
+      --muted: #9ba9bf;
+      --border: rgba(132, 159, 198, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(25, 88, 151, 0.20), transparent 48%),
+        var(--bg);
+      color: var(--white);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 650px;
+      z-index: -1;
+      opacity: 0.13;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 90%);
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .chart-bg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      width: min(100% - 36px, 1020px);
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 23px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      border: 1px solid rgba(57, 217, 138, 0.27);
+      border-radius: 12px;
+      color: var(--green);
+      background: rgba(57, 217, 138, 0.08);
+    }
+
+    .brand-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c1cddd;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: rgba(15, 24, 39, 0.7);
+      padding: 7px 11px;
+      border-radius: 50px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(57, 217, 138, 0.65);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 65px 0 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 7px 13px;
+      border: 1px solid rgba(57, 217, 138, 0.22);
+      border-radius: 50px;
+      color: #8fe7b9;
+      background: rgba(57, 217, 138, 0.055);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -2.7px;
+      font-weight: 850;
+    }
+
+    .gradient-text {
+      color: #53bafa;
+      background: linear-gradient(100deg, #e8f7ff 0%, #51b8f5 45%, #258fe4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      max-width: 580px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-description strong {
+      color: #dce7f8;
+      font-weight: 600;
+    }
+
+    .join-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .telegram-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: min(100%, 370px);
+      min-height: 62px;
+      padding: 15px 22px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 218, 255, 0.38);
+      border-radius: 15px;
+      background: linear-gradient(135deg, #2aadeb, #1685d0);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+      box-shadow:
+        0 0 0 5px rgba(34, 158, 217, 0.07),
+        0 10px 35px rgba(18, 137, 209, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: button-glow 3s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .telegram-button::before {
+      content: "";
+      position: absolute;
+      top: -60%;
+      left: -70%;
+      width: 45%;
+      height: 220%;
+      transform: rotate(25deg);
+      background: rgba(255, 255, 255, 0.15);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .telegram-button:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 0 6px rgba(34, 158, 217, 0.10),
+        0 15px 42px rgba(18, 137, 209, 0.38);
+    }
+
+    .telegram-button:hover::before {
+      left: 130%;
+    }
+
+    .telegram-button:active {
+      transform: scale(0.98);
+    }
+
+    .telegram-button svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    .join-note {
+      margin-top: 13px;
+      color: #8392a9;
+      font-size: 11px;
+    }
+
+    .join-note span {
+      color: var(--green);
+      margin-right: 5px;
+    }
+
+    .features {
+      padding: 24px 0 40px;
+    }
+
+    .section-heading {
+      margin-bottom: 19px;
+      color: #a9b7ca;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .feature-card {
+      padding: 21px 18px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: linear-gradient(
+        145deg,
+        rgba(22, 35, 55, 0.88),
+        rgba(12, 20, 34, 0.84)
+      );
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(67, 186, 245, 0.38);
+    }
+
+    .feature-icon {
+      display: grid;
+      place-items: center;
+      width: 41px;
+      height: 41px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(67, 186, 245, 0.17);
+      border-radius: 12px;
+      background: rgba(67, 186, 245, 0.09);
+      color: #5dc2fa;
+    }
+
+    .feature-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .feature-card h2 {
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .bottom-cta {
+      padding: 0 0 35px;
+      text-align: center;
+    }
+
+    .bottom-cta p {
+      margin-bottom: 12px;
+      color: #aab8ca;
+      font-size: 13px;
+    }
+
+    .bottom-cta .telegram-button {
+      width: min(100%, 310px);
+      min-height: 51px;
+      padding: 12px 17px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+
+    .bottom-cta .telegram-button svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    footer {
+      padding: 21px 0 24px;
+      border-top: 1px solid rgba(132, 159, 198, 0.10);
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin-bottom: 8px;
+      color: #b6c4d8;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .disclaimer {
+      max-width: 620px;
+      margin: 0 auto;
+      color: #75839a;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .copyright {
+      margin-top: 10px;
+      color: #56647a;
+      font-size: 10px;
+    }
+
+    @keyframes button-glow {
+      0%, 100% {
+        box-shadow:
+          0 0 0 4px rgba(34, 158, 217, 0.06),
+          0 10px 30px rgba(18, 137, 209, 0.22);
+      }
+      50% {
+        box-shadow:
+          0 0 0 7px rgba(34, 158, 217, 0.10),
+          0 12px 36px rgba(18, 137, 209, 0.32);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding-top: 77px;
+        padding-bottom: 42px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .features {
+        padding-top: 26px;
+        padding-bottom: 45px;
+      }
+
+      .feature-card {
+        padding: 25px 23px;
+      }
+
+      .feature-card h2 {
+        font-size: 15px;
+      }
+
+      .feature-card p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 30px, 440px);
+      }
+
+      header {
+        padding: 17px 0;
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      .brand-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .status {
+        gap: 6px;
+        padding: 6px 8px;
+        font-size: 10px;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 28px;
+      }
+
+      .eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+      }
+
+      h1 {
+        font-size: clamp(37px, 10vw, 50px);
+        letter-spacing: -1.8px;
+      }
+
+      .hero-description {
+        margin-top: 17px;
+        font-size: 13px;
+        line-height: 1.85;
+      }
+
+      .join-area {
+        margin-top: 26px;
+      }
+
+      .telegram-button {
+        min-height: 57px;
+        padding: 13px 14px;
+        font-size: 13px;
+      }
+
+      .features {
+        padding-top: 16px;
+        padding-bottom: 30px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .feature-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .feature-icon {
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 0;
+      }
+
+      .feature-card h2 {
+        margin-bottom: 3px;
+        font-size: 13px;
+      }
+
+      .feature-card p {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .section-heading {
+        margin-bottom: 13px;
+      }
+
+      .bottom-cta {
+        padding-bottom: 28px;
+      }
+
+      footer {
+        padding: 18px 0 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Meta Pixel fallback for browsers without JavaScript -->
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=2091893131451980&ev=PageView&noscript=1"
+      alt=""
+    >
+  </noscript>
+
+  <div class="page">
+
+    <!-- Decorative market chart -->
+    <div class="chart-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 650" preserveAspectRatio="xMidYMid slice"
+           xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="65" height="65" patternUnits="userSpaceOnUse">
+            <path d="M 65 0 L 0 0 0 65"
+                  fill="none" stroke="#7ea5d7" stroke-width="0.7"/>
+          </pattern>
+        </defs>
+        <rect width="1200" height="650" fill="url(#grid)"/>
+        <g stroke="#39d98a" stroke-width="2" fill="#39d98a">
+          <line x1="130" y1="260" x2="130" y2="350"/>
+          <rect x="120" y="280" width="20" height="48" rx="1"/>
+          <line x1="205" y1="220" x2="205" y2="315"/>
+          <rect x="195" y="235" width="20" height="48" rx="1"/>
+          <line x1="280" y1="250" x2="280" y2="390"/>
+          <rect x="270" y="290" width="20" height="65" rx="1"/>
+          <line x1="430" y1="150" x2="430" y2="275"/>
+          <rect x="420" y="180" width="20" height="63" rx="1"/>
+          <line x1="505" y1="125" x2="505" y2="240"/>
+          <rect x="495" y="140" width="20" height="68" rx="1"/>
+          <line x1="655" y1="100" x2="655" y2="225"/>
+          <rect x="645" y="125" width="20" height="67" rx="1"/>
+          <line x1="730" y1="135" x2="730" y2="260"/>
+          <rect x="720" y="165" width="20" height="70" rx="1"/>
+          <line x1="880" y1="70" x2="880" y2="185"/>
+          <rect x="870" y="95" width="20" height="64" rx="1"/>
+          <line x1="1030" y1="45" x2="1030" y2="165"/>
+          <rect x="1020" y="65" width="20" height="70" rx="1"/>
+        </g>
+        <g stroke="#43baf5" stroke-width="2" fill="#43baf5">
+          <line x1="355" y1="195" x2="355" y2="315"/>
+          <rect x="345" y="220" width="20" height="65" rx="1"/>
+          <line x1="580" y1="160" x2="580" y2="295"/>
+          <rect x="570" y="200" width="20" height="60" rx="1"/>
+          <line x1="805" y1="105" x2="805" y2="230"/>
+          <rect x="795" y="150" width="20" height="48" rx="1"/>
+          <line x1="955" y1="50" x2="955" y2="175"/>
+          <rect x="945" y="80" width="20" height="70" rx="1"/>
+        </g>
+        <polyline
+          points="70,380 160,310 240,340 325,230 400,260 485,170 560,220 650,120 740,190 820,105 900,130 990,60 1100,75"
+          fill="none" stroke="#43baf5" stroke-width="3"
+        />
+      </svg>
+    </div>
+
+    <header>
+      <div class="container nav">
+        <a href="#" class="brand" aria-label="Option Trader home">
+          <span class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M3 17l6-6 4 4 8-9"/>
+              <path d="M15 6h6v6"/>
+            </svg>
+          </span>
+          <span>OPTION TRADER</span>
+        </a>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Market Insights
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true">
+            <path d="M3 17l6-6 4 4 8-9"/>
+            <path d="M15 6h6v6"/>
+          </svg>
+          YOUR TRADING COMMUNITY
+        </div>
+
+        <h1>
+          Trading Insights.<br>
+          <span class="gradient-text">Smarter Decisions.</span>
+        </h1>
+
+        <p class="hero-description">
+          Stock market ki duniya ko samjho better way mein.
+          Explore karo <strong>market insights, trading setups, chart analysis</strong>
+          aur useful market updates — ek hi jagah.
+        </p>
+
+        <div class="join-area">
+          <a
+            href="https://t.me/+m3o21OIQlWBiMzg9"
+            class="telegram-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join Option Trader on Telegram"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
+            </svg>
+            <span>Join Option Trader on Telegram</span>
+          </a>
+
+          <p class="join-note">
+            <span>✓</span> Market insights • Educational content
+          </p>
+        </div>
+      </section>
+
+      <section class="features container" aria-labelledby="features-title">
+        <h2 class="section-heading" id="features-title">
+          What You'll Explore
+        </h2>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M3 3v18h18"/>
+                <path d="M7 14l4-4 4 3 6-7"/>
+                <path d="M16 6h5v5"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Market Insights</h2>
+              <p>Market trends aur important updates ko samajhne mein help.</p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <path d="M4 19V5"/>
+                <path d="M10 19V9"/>
+                <path d="M16 19V3"/>
+                <path d="M22 19V12"/>
+                <path d="M2 19h20"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Trading Setups</h2>
+              <p>Educational trading ideas, charts aur technical analysis.</p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <rect x="3" y="4" width="18" height="17" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+                <path d="m9 15 2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Market Updates</h2>
+              <p>Stock market se related useful information aur learning.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bottom-cta container">
+        <p>Learn. Analyze. Trade Responsibly.</p>
+
+        <a
+          href="https://t.me/+m3o21OIQlWBiMzg9"
+          class="telegram-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Join Option Trader Telegram channel"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
+          </svg>
+          <span>Join Our Telegram Channel</span>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p class="footer-brand">OPTION TRADER</p>
+
+        <p class="disclaimer">
+          Disclaimer: All content is for educational and informational purposes
+          only and should not be considered financial or investment advice.
+          Trading in stocks and options involves significant risk, including
+          possible loss of capital. No profits or returns are guaranteed.
+          Please do your own research and consult a qualified financial advisor
+          before making investment decisions.
+        </p>
+
+        <p class="copyright">
+          &copy; <span id="year">2026</span> Option Trader. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Automatically update the copyright year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
