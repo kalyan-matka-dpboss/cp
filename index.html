@@ -1,15 +1,14 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f2fbf7">
-  <meta name="description" content="Join Index Trading with Nitin Murarka on Telegram for market insights, index analysis, trading setups, and educational content.">
 
   <title>Index Trading with Nitin Murarka | Telegram</title>
+  <meta name="description" content="Join Index Trading with Nitin Murarka on Telegram for index market insights, trading setups and market updates.">
 
-  <!-- Meta Pixel Code - UNCHANGED -->
+  <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -26,18 +25,13 @@
 
   <style>
     :root {
-      --bg: #f2fbf7;
+      --green: #dff8e9;
+      --green-dark: #16845b;
+      --blue: #087cf0;
+      --blue-dark: #075fc0;
+      --navy: #102a43;
+      --text: #526579;
       --white: #ffffff;
-      --green: #16865d;
-      --green-light: #e1f7eb;
-      --green-soft: #f5fcf8;
-      --blue: #168fe0;
-      --blue-dark: #0875c1;
-      --blue-light: #45b8ff;
-      --text: #17352e;
-      --muted: #637d76;
-      --border: #dceee6;
-      --shadow: 0 15px 45px rgba(33, 106, 81, 0.08);
     }
 
     * {
@@ -52,959 +46,517 @@
 
     body {
       min-height: 100vh;
-      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
       background:
-        radial-gradient(
-          ellipse at 8% 0%,
-          rgba(119, 226, 177, 0.23),
-          transparent 36%
-        ),
-        radial-gradient(
-          ellipse at 95% 15%,
-          rgba(91, 190, 255, 0.16),
-          transparent 34%
-        ),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+        radial-gradient(ellipse at 10% 10%, #c8f6d9 0%, transparent 38%),
+        radial-gradient(ellipse at 90% 15%, #cde7ff 0%, transparent 36%),
+        linear-gradient(145deg, #f3fff7 0%, #eef7ff 55%, #f8fffb 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
     }
 
     .page {
-      position: relative;
-      isolation: isolate;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chart-bg {
-      position: absolute;
-      inset: 0 0 auto;
       width: 100%;
-      height: 570px;
-      z-index: -1;
-      opacity: 0.12;
-      pointer-events: none;
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent 92%);
-      mask-image: linear-gradient(to bottom, black, transparent 92%);
+      max-width: 960px;
+      padding: 22px 18px 18px;
+      margin: 0 auto;
     }
 
-    .chart-bg svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .container {
-      width: min(100% - 36px, 1040px);
-      margin-inline: auto;
-    }
-
-    header {
-      padding: 19px 0;
-    }
-
-    .nav {
+    .topbar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      justify-content: center;
+      margin-bottom: 24px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 11px;
-      font-size: 14px;
-      font-weight: 850;
-      letter-spacing: 0.6px;
-      line-height: 1.35;
+      gap: 10px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.3px;
     }
 
     .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
       display: grid;
       place-items: center;
-      flex-shrink: 0;
-      width: 43px;
-      height: 43px;
-      border: 1px solid #ccebd9;
-      border-radius: 14px;
-      color: var(--green);
-      background: linear-gradient(145deg, #ffffff, #e2f8ec);
-      box-shadow: 0 5px 16px rgba(32, 135, 90, 0.08);
+      background: linear-gradient(135deg, #b8f2cf, #b9ddff);
+      color: #087b60;
+      font-size: 19px;
+      box-shadow: 0 5px 16px rgba(24, 117, 102, 0.12);
     }
 
-    .brand-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .brand small {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 11px;
-      border: 1px solid #d4ecdf;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.85);
-      color: #477467;
-      font-size: 11px;
-      font-weight: 650;
-      white-space: nowrap;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #24b879;
-      box-shadow: 0 0 9px rgba(36, 184, 121, 0.35);
-    }
-
-    main {
-      flex: 1;
-    }
-
-    /* Main hero */
     .hero {
-      position: relative;
       text-align: center;
-      padding: 46px 0 30px;
+      padding: 34px 24px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 18px 55px rgba(34, 91, 107, 0.09);
+      backdrop-filter: blur(12px);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
-      margin-bottom: 20px;
-      padding: 7px 13px;
-      border: 1px solid #d1efde;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.78);
-      color: #18835a;
-      font-size: 10px;
+      padding: 8px 13px;
+      margin-bottom: 19px;
+      border-radius: 100px;
+      background: #e5f9ed;
+      color: #16764e;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
-    .eyebrow svg {
-      width: 15px;
-      height: 15px;
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: #20b875;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(32, 184, 117, 0.12);
     }
 
     h1 {
-      max-width: 850px;
-      margin: 0 auto;
-      color: #173b32;
-      font-size: clamp(36px, 6.5vw, 68px);
+      max-width: 720px;
+      margin: 0 auto 16px;
+      color: var(--navy);
+      font-size: clamp(32px, 6vw, 54px);
+      line-height: 1.12;
+      letter-spacing: -1.8px;
       font-weight: 850;
-      line-height: 1.11;
-      letter-spacing: -2.2px;
     }
 
-    .gradient-text {
-      color: #168fe0;
-      background: linear-gradient(
-        100deg,
-        #178d68 0%,
-        #178fe0 75%,
-        #48b7f5 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    h1 span {
+      display: block;
+      margin-top: 5px;
+      color: var(--green-dark);
     }
 
-    .hero-description {
-      max-width: 610px;
-      margin: 18px auto 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.85;
+    .intro {
+      max-width: 590px;
+      margin: 0 auto;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.75;
     }
 
-    .hero-description strong {
-      color: #244e41;
-      font-weight: 750;
-    }
-
-    /* Highlighted Telegram button */
-    .join-area {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 27px;
-    }
-
-    .telegram-button {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 11px;
-      width: min(100%, 390px);
-      min-height: 63px;
-      padding: 15px 20px;
+    .chart-card {
+      max-width: 520px;
+      margin: 25px auto 24px;
+      padding: 17px 20px 12px;
+      border: 1px solid #e1f0e8;
+      border-radius: 20px;
+      background: linear-gradient(115deg, #f0fff5, #eff7ff);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 16px;
-      background: linear-gradient(135deg, #29b0f3 0%, #168fe0 55%, #0878cb 100%);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.1px;
-      box-shadow:
-        0 0 0 5px rgba(22, 143, 224, 0.09),
-        0 12px 32px rgba(22, 143, 224, 0.27);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      animation: telegram-glow 3s ease-in-out infinite;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .telegram-button::before {
-      content: "";
-      position: absolute;
-      top: -60%;
-      left: -85%;
-      width: 42%;
-      height: 220%;
-      transform: rotate(25deg);
-      background: rgba(255, 255, 255, 0.20);
-      transition: left 0.65s ease;
-      pointer-events: none;
-    }
-
-    .telegram-button:hover {
-      transform: translateY(-3px);
-      box-shadow:
-        0 0 0 7px rgba(22, 143, 224, 0.11),
-        0 16px 38px rgba(22, 143, 224, 0.34);
-    }
-
-    .telegram-button:hover::before {
-      left: 135%;
-    }
-
-    .telegram-button:active {
-      transform: scale(0.98);
-    }
-
-    .telegram-button:focus-visible {
-      outline: 3px solid #168fe0;
-      outline-offset: 5px;
-    }
-
-    .telegram-button svg {
-      position: relative;
-      z-index: 1;
-      flex-shrink: 0;
-      width: 25px;
-      height: 25px;
-    }
-
-    .telegram-button span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .join-note {
-      margin-top: 13px;
-      color: #718a80;
-      font-size: 11px;
-    }
-
-    .join-note span {
-      margin-right: 5px;
-      color: #179d69;
-      font-weight: 800;
-    }
-
-    .trust-line {
+    .chart-top {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px 17px;
-      margin-top: 24px;
-      color: #52776a;
-      font-size: 11px;
-      font-weight: 650;
-    }
-
-    .trust-line span {
-      display: inline-flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #597182;
     }
 
-    .trust-line svg {
-      width: 14px;
-      height: 14px;
-      color: #219d6c;
-    }
-
-    /* Features */
-    .features {
-      padding: 24px 0 37px;
-    }
-
-    .section-heading {
-      margin-bottom: 17px;
-      color: #52776a;
-      text-align: center;
-      font-size: 11px;
+    .chart-label {
       font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      color: #176c55;
     }
 
-    .feature-grid {
+    .chart-status {
+      color: #16845b;
+      font-weight: 700;
+    }
+
+    .chart {
+      width: 100%;
+      height: 95px;
+      display: block;
+    }
+
+    .cta-title {
+      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #536b7d;
+    }
+
+    .telegram-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 390px;
+      min-height: 66px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      overflow: hidden;
+      border-radius: 17px;
+      background: linear-gradient(135deg, #168bff, #0866df);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow:
+        0 10px 0 #0757b8,
+        0 17px 28px rgba(8, 124, 240, 0.27);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: soft-glow 2.5s ease-in-out infinite;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 12px 0 #0757b8,
+        0 20px 34px rgba(8, 124, 240, 0.33);
+    }
+
+    .telegram-btn:active {
+      transform: translateY(5px);
+      box-shadow: 0 4px 0 #0757b8;
+    }
+
+    .telegram-icon {
+      width: 31px;
+      height: 31px;
+      flex-shrink: 0;
+    }
+
+    .cta-note {
+      margin-top: 22px;
+      color: #718395;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .features {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 15px;
+      gap: 14px;
+      margin: 22px 0;
     }
 
-    .feature-card {
-      padding: 22px 19px;
-      border: 1px solid rgba(210, 235, 222, 0.95);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: #a9dfc1;
+    .feature {
+      padding: 19px 15px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 19px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 8px 24px rgba(34, 91, 107, 0.045);
     }
 
     .feature-icon {
       display: grid;
       place-items: center;
-      width: 43px;
-      height: 43px;
-      margin-bottom: 14px;
-      border: 1px solid #d7f0e2;
-      border-radius: 13px;
-      background: linear-gradient(145deg, #effcf4, #e3f4ff);
-      color: #168b70;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #dcf8e7, #deedff);
+      font-size: 20px;
     }
 
-    .feature-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .feature-card h2 {
-      margin-bottom: 6px;
-      color: #24483c;
+    .feature h2 {
+      margin-bottom: 7px;
       font-size: 14px;
-      font-weight: 800;
+      color: var(--navy);
     }
 
-    .feature-card p {
-      color: #70867e;
+    .feature p {
+      color: var(--text);
       font-size: 12px;
-      line-height: 1.75;
+      line-height: 1.6;
     }
 
-    /* Second CTA */
     .bottom-cta {
-      padding: 0 0 32px;
+      padding: 24px 18px;
       text-align: center;
+      border-radius: 23px;
+      background: linear-gradient(115deg, #e3f9eb, #e2f0ff);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+    }
+
+    .bottom-cta h2 {
+      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.3;
+      color: var(--navy);
     }
 
     .bottom-cta p {
-      margin-bottom: 13px;
-      color: #52776a;
+      margin-bottom: 20px;
+      color: var(--text);
       font-size: 13px;
-      font-weight: 650;
-    }
-
-    .bottom-cta .telegram-button {
-      width: min(100%, 325px);
-      min-height: 53px;
-      padding: 12px 17px;
-      border-radius: 13px;
-      font-size: 13px;
-    }
-
-    .bottom-cta .telegram-button svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 20px 0 22px;
-      border-top: 1px solid #dceee6;
-      background: rgba(255, 255, 255, 0.48);
-      text-align: center;
-    }
-
-    .footer-brand {
-      margin-bottom: 7px;
-      color: #2a6652;
-      font-size: 11px;
-      font-weight: 850;
-      letter-spacing: 2px;
+      line-height: 1.6;
     }
 
     .disclaimer {
-      max-width: 650px;
-      margin: 0 auto;
-      color: #71877f;
+      max-width: 740px;
+      margin: 22px auto 12px;
+      text-align: center;
+      color: #7b8b99;
       font-size: 10px;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    .copyright {
-      margin-top: 9px;
-      color: #84988f;
-      font-size: 10px;
+    footer {
+      padding: 10px 0 4px;
+      text-align: center;
+      color: #81909c;
+      font-size: 11px;
     }
 
-    @keyframes telegram-glow {
+    @keyframes soft-glow {
       0%, 100% {
-        box-shadow:
-          0 0 0 4px rgba(22, 143, 224, 0.07),
-          0 10px 28px rgba(22, 143, 224, 0.22);
+        filter: brightness(1);
       }
-
       50% {
-        box-shadow:
-          0 0 0 7px rgba(22, 143, 224, 0.11),
-          0 13px 34px rgba(22, 143, 224, 0.30);
+        filter: brightness(1.07);
       }
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        padding-top: 53px;
-        padding-bottom: 34px;
+    @media (max-width: 600px) {
+      .page {
+        padding: 15px 13px;
       }
 
-      .hero-description {
-        font-size: 16px;
-      }
-
-      .features {
-        padding-top: 25px;
-        padding-bottom: 43px;
-      }
-
-      .feature-card {
-        padding: 25px 23px;
-      }
-
-      .feature-card h2 {
-        font-size: 15px;
-      }
-
-      .feature-card p {
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: min(100% - 30px, 440px);
-      }
-
-      header {
-        padding: 15px 0;
-      }
-
-      .brand {
-        gap: 8px;
-        font-size: 11px;
-        letter-spacing: 0;
-      }
-
-      .brand-icon {
-        width: 37px;
-        height: 37px;
-      }
-
-      .brand-icon svg {
-        width: 21px;
-        height: 21px;
-      }
-
-      .brand small {
-        font-size: 8px;
-        letter-spacing: 1.1px;
-      }
-
-      .status {
-        gap: 6px;
-        padding: 6px 8px;
-        font-size: 9px;
+      .topbar {
+        margin-bottom: 15px;
       }
 
       .hero {
-        padding-top: 35px;
-        padding-bottom: 23px;
+        padding: 27px 16px 24px;
+        border-radius: 24px;
       }
 
       .eyebrow {
-        margin-bottom: 18px;
-        padding: 6px 10px;
-        font-size: 9px;
-        letter-spacing: 1.1px;
+        margin-bottom: 16px;
+        font-size: 10px;
       }
 
       h1 {
-        font-size: clamp(35px, 9.4vw, 48px);
-        letter-spacing: -1.7px;
+        font-size: clamp(30px, 8.4vw, 42px);
+        letter-spacing: -1.2px;
       }
 
-      .hero-description {
-        margin-top: 15px;
-        font-size: 13px;
-        line-height: 1.8;
+      .intro {
+        font-size: 14px;
+        line-height: 1.7;
       }
 
-      .join-area {
-        margin-top: 24px;
+      .chart-card {
+        margin: 21px auto 23px;
+        padding: 14px 13px 9px;
       }
 
-      .telegram-button {
-        min-height: 59px;
-        padding: 13px 12px;
-        gap: 9px;
-        font-size: 13px;
-      }
-
-      .telegram-button svg {
-        width: 23px;
-        height: 23px;
-      }
-
-      .join-note {
-        font-size: 10px;
-      }
-
-      .trust-line {
-        gap: 8px 13px;
-        margin-top: 19px;
-        font-size: 10px;
+      .telegram-btn {
+        min-height: 62px;
+        padding: 15px 12px;
+        font-size: 15px;
+        border-radius: 15px;
       }
 
       .features {
-        padding-top: 14px;
-        padding-bottom: 27px;
-      }
-
-      .section-heading {
-        margin-bottom: 12px;
-      }
-
-      .feature-grid {
         grid-template-columns: 1fr;
         gap: 10px;
+        margin: 16px 0;
       }
 
-      .feature-card {
+      .feature {
         display: flex;
         align-items: center;
         gap: 13px;
-        padding: 13px;
-        border-radius: 15px;
+        padding: 14px;
+        text-align: left;
       }
 
       .feature-icon {
         flex-shrink: 0;
-        width: 41px;
-        height: 41px;
-        margin-bottom: 0;
+        margin: 0;
       }
 
-      .feature-card h2 {
-        margin-bottom: 3px;
-        font-size: 13px;
-      }
-
-      .feature-card p {
-        font-size: 11px;
-        line-height: 1.65;
+      .feature h2 {
+        margin-bottom: 4px;
       }
 
       .bottom-cta {
-        padding-bottom: 25px;
+        padding: 22px 15px;
       }
 
-      footer {
-        padding: 17px 0 19px;
+      .bottom-cta h2 {
+        font-size: 19px;
+      }
+
+      .disclaimer {
+        margin-top: 17px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+      *, *::before, *::after {
+        animation: none !important;
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+        transition: none !important;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Meta Pixel noscript fallback - UNCHANGED -->
+  <!-- Meta Pixel noscript fallback -->
   <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=2091893131451980&ev=PageView&noscript=1"
-      alt=""
-    >
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2091893131451980&ev=PageView&noscript=1"
+    alt="">
   </noscript>
 
-  <div class="page">
-
-    <!-- Decorative background chart -->
-    <div class="chart-bg" aria-hidden="true">
-      <svg viewBox="0 0 1200 570"
-           preserveAspectRatio="xMidYMid slice"
-           xmlns="http://www.w3.org/2000/svg">
-
-        <defs>
-          <pattern id="grid" width="65" height="65"
-                   patternUnits="userSpaceOnUse">
-            <path d="M 65 0 L 0 0 0 65"
-                  fill="none"
-                  stroke="#5cae8a"
-                  stroke-width="0.8"/>
-          </pattern>
-        </defs>
-
-        <rect width="1200" height="570" fill="url(#grid)"/>
-
-        <g stroke="#21a878" stroke-width="2" fill="#21a878">
-          <line x1="130" y1="260" x2="130" y2="350"/>
-          <rect x="120" y="280" width="20" height="48" rx="1"/>
-
-          <line x1="205" y1="220" x2="205" y2="315"/>
-          <rect x="195" y="235" width="20" height="48" rx="1"/>
-
-          <line x1="280" y1="250" x2="280" y2="390"/>
-          <rect x="270" y="290" width="20" height="65" rx="1"/>
-
-          <line x1="430" y1="150" x2="430" y2="275"/>
-          <rect x="420" y="180" width="20" height="63" rx="1"/>
-
-          <line x1="505" y1="125" x2="505" y2="240"/>
-          <rect x="495" y="140" width="20" height="68" rx="1"/>
-
-          <line x1="655" y1="100" x2="655" y2="225"/>
-          <rect x="645" y="125" width="20" height="67" rx="1"/>
-
-          <line x1="730" y1="135" x2="730" y2="260"/>
-          <rect x="720" y="165" width="20" height="70" rx="1"/>
-
-          <line x1="880" y1="70" x2="880" y2="185"/>
-          <rect x="870" y="95" width="20" height="64" rx="1"/>
-
-          <line x1="1030" y1="45" x2="1030" y2="165"/>
-          <rect x="1020" y="65" width="20" height="70" rx="1"/>
-        </g>
-
-        <g stroke="#168fe0" stroke-width="2" fill="#168fe0">
-          <line x1="355" y1="195" x2="355" y2="315"/>
-          <rect x="345" y="220" width="20" height="65" rx="1"/>
-
-          <line x1="580" y1="160" x2="580" y2="295"/>
-          <rect x="570" y="200" width="20" height="60" rx="1"/>
-
-          <line x1="805" y1="105" x2="805" y2="230"/>
-          <rect x="795" y="150" width="20" height="48" rx="1"/>
-
-          <line x1="955" y1="50" x2="955" y2="175"/>
-          <rect x="945" y="80" width="20" height="70" rx="1"/>
-        </g>
-
-        <polyline
-          points="70,380 160,310 240,340 325,230 400,260 485,170 560,220 650,120 740,190 820,105 900,130 990,60 1100,75"
-          fill="none"
-          stroke="#168fe0"
-          stroke-width="3"
-        />
-      </svg>
-    </div>
-
-    <header>
-      <div class="container nav">
-
-        <a href="#" class="brand" aria-label="Index Trading home">
-          <span class="brand-icon">
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="M3 17l6-6 4 4 8-9"/>
-              <path d="M15 6h6v6"/>
-            </svg>
-          </span>
-
-          <span>
-            INDEX TRADING
-            <small>WITH NITIN MURARKA</small>
-          </span>
-        </a>
-
-        <div class="status">
-          <span class="status-dot"></span>
-          Market Insights
-        </div>
-
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">↗</div>
+        <span>INDEX TRADING</span>
       </div>
     </header>
 
-    <main>
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        INDEX MARKET INSIGHTS
+      </div>
 
-      <!-- Main hero: Telegram CTA appears above the fold -->
-      <section class="hero container">
+      <h1>
+        Index Trading
+        <span>with Nitin Murarka</span>
+      </h1>
 
-        <div class="eyebrow">
-          <svg viewBox="0 0 24 24"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               aria-hidden="true">
-            <path d="M3 17l6-6 4 4 8-9"/>
-            <path d="M15 6h6v6"/>
-          </svg>
-          YOUR MARKET LEARNING COMMUNITY
+      <p class="intro">
+        Nifty aur Bank Nifty ke market insights, trading setups
+        aur regular updates ke liye Telegram channel join karein.
+      </p>
+
+      <div class="chart-card" aria-label="Decorative market chart">
+        <div class="chart-top">
+          <span class="chart-label">MARKET PERSPECTIVE</span>
+          <span class="chart-status">● Insights &amp; Updates</span>
         </div>
 
-        <h1>
-          Index Trading.<br>
-          <span class="gradient-text">Smarter Perspectives.</span>
-        </h1>
+        <svg class="chart" viewBox="0 0 420 95"
+             xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-label="Decorative upward market line">
+          <defs>
+            <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#36bd88" stop-opacity="0.23"/>
+              <stop offset="100%" stop-color="#36bd88" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
 
-        <p class="hero-description">
-          Nifty aur Bank Nifty market ko samjho ek better perspective ke saath.
-          Explore karo <strong>index analysis, trading setups, chart insights</strong>
-          aur market-related educational updates — ek hi jagah.
-        </p>
+          <path d="M0 72 L35 61 L65 68 L96 42 L125 52 L156 31 L185 45 L216 23 L245 34 L276 15 L306 29 L340 10 L370 19 L420 3 L420 95 L0 95 Z"
+                fill="url(#areaFill)"/>
 
-        <div class="join-area">
+          <path d="M0 72 L35 61 L65 68 L96 42 L125 52 L156 31 L185 45 L216 23 L245 34 L276 15 L306 29 L340 10 L370 19 L420 3"
+                fill="none" stroke="#22a978" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"/>
 
-          <!-- Telegram link - UNCHANGED -->
-          <a
-            href="https://t.me/+m3o21OIQlWBiMzg9"
-            class="telegram-button"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Join Index Trading with Nitin Murarka on Telegram"
-          >
-            <svg viewBox="0 0 24 24"
-                 fill="currentColor"
-                 aria-hidden="true">
-              <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
-            </svg>
+          <circle cx="420" cy="3" r="4.5" fill="#087cf0"/>
+        </svg>
+      </div>
 
-            <span>Join Our Telegram Channel</span>
-          </a>
+      <p class="cta-title">Join the Telegram Channel</p>
 
-          <p class="join-note">
-            <span>✓</span>
-            Market insights • Educational content
-          </p>
+      <a class="telegram-btn"
+         href="https://t.me/+m3o21OIQlWBiMzg9"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg class="telegram-icon" viewBox="0 0 24 24"
+             fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+          <path d="M21.8 4.3c.3-1.1-.7-2-1.7-1.6L2.7 9.4c-1.2.5-1.1 2.2.1 2.6l4.5 1.4 1.7 5.2c.4 1.2 2 1.4 2.7.4l2.5-3.3 4.4 3.2c.9.6 2.1.1 2.3-1l.9-13.6zM9 12.8l8.8-6.2-7.1 7.5-.3 3.2-1.4-4.5z"/>
+        </svg>
+        Join Telegram Channel
+        <span aria-hidden="true">→</span>
+      </a>
 
+      <p class="cta-note">
+        Get market insights and updates directly on Telegram.
+      </p>
+    </section>
+
+    <section class="features" aria-label="Channel highlights">
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">📊</div>
+        <div>
+          <h2>Index Insights</h2>
+          <p>Nifty aur Bank Nifty market perspectives.</p>
         </div>
+      </article>
 
-        <div class="trust-line">
-          <span>
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="m5 12 4 4L19 6"/>
-            </svg>
-            Learn at your own pace
-          </span>
-
-          <span>
-            <svg viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
-              <path d="m5 12 4 4L19 6"/>
-            </svg>
-            Trade responsibly
-          </span>
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">📈</div>
+        <div>
+          <h2>Trading Setups</h2>
+          <p>Market analysis aur trading-related ideas.</p>
         </div>
+      </article>
 
-      </section>
-
-      <!-- Features -->
-      <section class="features container" aria-labelledby="features-title">
-
-        <h2 class="section-heading" id="features-title">
-          What You'll Explore
-        </h2>
-
-        <div class="feature-grid">
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24"
-                   fill="none"
-                   stroke="currentColor"
-                   stroke-width="1.8"
-                   stroke-linecap="round"
-                   stroke-linejoin="round"
-                   aria-hidden="true">
-                <path d="M3 3v18h18"/>
-                <path d="M7 14l4-4 4 3 6-7"/>
-                <path d="M16 6h5v5"/>
-              </svg>
-            </div>
-
-            <div>
-              <h2>Index Insights</h2>
-              <p>Nifty aur Bank Nifty ke trends aur market observations.</p>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24"
-                   fill="none"
-                   stroke="currentColor"
-                   stroke-width="1.8"
-                   stroke-linecap="round"
-                   stroke-linejoin="round"
-                   aria-hidden="true">
-                <path d="M4 19V5"/>
-                <path d="M10 19V9"/>
-                <path d="M16 19V3"/>
-                <path d="M22 19V12"/>
-                <path d="M2 19h20"/>
-              </svg>
-            </div>
-
-            <div>
-              <h2>Trading Setups</h2>
-              <p>Educational trading concepts, chart patterns aur analysis.</p>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24"
-                   fill="none"
-                   stroke="currentColor"
-                   stroke-width="1.8"
-                   stroke-linecap="round"
-                   stroke-linejoin="round"
-                   aria-hidden="true">
-                <rect x="3" y="4" width="18" height="17" rx="2"/>
-                <path d="M16 2v4M8 2v4M3 10h18"/>
-                <path d="m9 15 2 2 4-4"/>
-              </svg>
-            </div>
-
-            <div>
-              <h2>Market Updates</h2>
-              <p>Market-related information aur ongoing learning resources.</p>
-            </div>
-          </article>
-
+      <article class="feature">
+        <div class="feature-icon" aria-hidden="true">🔔</div>
+        <div>
+          <h2>Market Updates</h2>
+          <p>Channel par regular updates aur insights.</p>
         </div>
-      </section>
+      </article>
+    </section>
 
-      <!-- Second Telegram CTA - same link -->
-      <section class="bottom-cta container">
+    <section class="bottom-cta">
+      <h2>Stay Connected with the Market</h2>
+      <p>
+        Index market se related insights aur updates ke liye
+        Telegram channel par join karein.
+      </p>
 
-        <p>Learn. Analyze. Trade Responsibly.</p>
+      <a class="telegram-btn"
+         href="https://t.me/+m3o21OIQlWBiMzg9"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg class="telegram-icon" viewBox="0 0 24 24"
+             fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+          <path d="M21.8 4.3c.3-1.1-.7-2-1.7-1.6L2.7 9.4c-1.2.5-1.1 2.2.1 2.6l4.5 1.4 1.7 5.2c.4 1.2 2 1.4 2.7.4l2.5-3.3 4.4 3.2c.9.6 2.1.1 2.3-1l.9-13.6zM9 12.8l8.8-6.2-7.1 7.5-.3 3.2-1.4-4.5z"/>
+        </svg>
+        Join Telegram Channel
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
 
-        <a
-          href="https://t.me/+m3o21OIQlWBiMzg9"
-          class="telegram-button"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Join Index Trading Telegram channel"
-        >
-          <svg viewBox="0 0 24 24"
-               fill="currentColor"
-               aria-hidden="true">
-            <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
-          </svg>
-
-          <span>Join on Telegram</span>
-        </a>
-
-      </section>
-
-    </main>
+    <p class="disclaimer">
+      Disclaimer: Content is for educational and informational purposes only.
+      It should not be considered financial or investment advice.
+      Trading in financial markets involves risk. Please do your own research
+      and consult a qualified financial advisor before making decisions.
+    </p>
 
     <footer>
-      <div class="container">
-
-        <p class="footer-brand">
-          INDEX TRADING WITH NITIN MURARKA
-        </p>
-
-        <p class="disclaimer">
-          Disclaimer: All content is for educational and informational purposes
-          only and should not be considered financial or investment advice.
-          Trading in stocks, indices, and options involves significant risk,
-          including possible loss of capital. No profits or returns are
-          guaranteed. Please do your own research and consult a qualified
-          financial advisor before making investment decisions.
-        </p>
-
-        <p class="copyright">
-          &copy; <span id="year">2026</span>
-          Index Trading with Nitin Murarka. All rights reserved.
-        </p>
-
-      </div>
+      © <span id="year"></span> Index Trading with Nitin Murarka. All rights reserved.
     </footer>
-
-  </div>
+  </main>
 
   <script>
-    // Automatically update the copyright year.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
-```
