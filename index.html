@@ -1,13 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080d18">
-  <meta name="description" content="Join Option Trader on Telegram for stock market insights, trading setups, market updates, and educational content.">
-  <title>Option Trader | Trading Insights & Market Updates</title>
+  <meta name="theme-color" content="#f2fbf7">
+  <meta name="description" content="Join Index Trading with Nitin Murarka on Telegram for market insights, index analysis, trading setups, and educational content.">
 
-  <!-- Meta Pixel Code -->
+  <title>Index Trading with Nitin Murarka | Telegram</title>
+
+  <!-- Meta Pixel Code - UNCHANGED -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,12 +26,18 @@
 
   <style>
     :root {
-      --bg: #080d18;
-      --blue: #229ed9;
-      --green: #39d98a;
-      --white: #f4f7ff;
-      --muted: #9ba9bf;
-      --border: rgba(132, 159, 198, 0.15);
+      --bg: #f2fbf7;
+      --white: #ffffff;
+      --green: #16865d;
+      --green-light: #e1f7eb;
+      --green-soft: #f5fcf8;
+      --blue: #168fe0;
+      --blue-dark: #0875c1;
+      --blue-light: #45b8ff;
+      --text: #17352e;
+      --muted: #637d76;
+      --border: #dceee6;
+      --shadow: 0 15px 45px rgba(33, 106, 81, 0.08);
     }
 
     * {
@@ -46,11 +54,20 @@
       min-height: 100vh;
       overflow-x: hidden;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(25, 88, 151, 0.20), transparent 48%),
+        radial-gradient(
+          ellipse at 8% 0%,
+          rgba(119, 226, 177, 0.23),
+          transparent 36%
+        ),
+        radial-gradient(
+          ellipse at 95% 15%,
+          rgba(91, 190, 255, 0.16),
+          transparent 34%
+        ),
         var(--bg);
-      color: var(--white);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.6;
     }
 
@@ -69,14 +86,14 @@
 
     .chart-bg {
       position: absolute;
-      inset: 0;
+      inset: 0 0 auto;
       width: 100%;
-      height: 650px;
+      height: 570px;
       z-index: -1;
-      opacity: 0.13;
+      opacity: 0.12;
       pointer-events: none;
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent 90%);
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 92%);
+      mask-image: linear-gradient(to bottom, black, transparent 92%);
     }
 
     .chart-bg svg {
@@ -85,12 +102,12 @@
     }
 
     .container {
-      width: min(100% - 36px, 1020px);
+      width: min(100% - 36px, 1040px);
       margin-inline: auto;
     }
 
     header {
-      padding: 23px 0;
+      padding: 19px 0;
     }
 
     .nav {
@@ -104,114 +121,137 @@
       display: flex;
       align-items: center;
       gap: 11px;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 1.4px;
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: 0.6px;
+      line-height: 1.35;
     }
 
     .brand-icon {
       display: grid;
       place-items: center;
-      width: 39px;
-      height: 39px;
-      border: 1px solid rgba(57, 217, 138, 0.27);
-      border-radius: 12px;
+      flex-shrink: 0;
+      width: 43px;
+      height: 43px;
+      border: 1px solid #ccebd9;
+      border-radius: 14px;
       color: var(--green);
-      background: rgba(57, 217, 138, 0.08);
+      background: linear-gradient(145deg, #ffffff, #e2f8ec);
+      box-shadow: 0 5px 16px rgba(32, 135, 90, 0.08);
     }
 
     .brand-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     .status {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: #c1cddd;
-      font-size: 12px;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      background: rgba(15, 24, 39, 0.7);
+      gap: 7px;
       padding: 7px 11px;
+      border: 1px solid #d4ecdf;
       border-radius: 50px;
+      background: rgba(255, 255, 255, 0.85);
+      color: #477467;
+      font-size: 11px;
+      font-weight: 650;
+      white-space: nowrap;
     }
 
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px rgba(57, 217, 138, 0.65);
+      background: #24b879;
+      box-shadow: 0 0 9px rgba(36, 184, 121, 0.35);
     }
 
     main {
       flex: 1;
     }
 
+    /* Main hero */
     .hero {
       position: relative;
       text-align: center;
-      padding: 65px 0 36px;
+      padding: 46px 0 30px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding: 7px 13px;
-      border: 1px solid rgba(57, 217, 138, 0.22);
+      border: 1px solid #d1efde;
       border-radius: 50px;
-      color: #8fe7b9;
-      background: rgba(57, 217, 138, 0.055);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #18835a;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
     }
 
     .eyebrow svg {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
     }
 
     h1 {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
-      font-size: clamp(38px, 7vw, 72px);
-      line-height: 1.08;
-      letter-spacing: -2.7px;
+      color: #173b32;
+      font-size: clamp(36px, 6.5vw, 68px);
       font-weight: 850;
+      line-height: 1.11;
+      letter-spacing: -2.2px;
     }
 
     .gradient-text {
-      color: #53bafa;
-      background: linear-gradient(100deg, #e8f7ff 0%, #51b8f5 45%, #258fe4 100%);
+      color: #168fe0;
+      background: linear-gradient(
+        100deg,
+        #178d68 0%,
+        #178fe0 75%,
+        #48b7f5 100%
+      );
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-description {
-      max-width: 580px;
-      margin: 22px auto 0;
+      max-width: 610px;
+      margin: 18px auto 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.9;
+      line-height: 1.85;
     }
 
     .hero-description strong {
-      color: #dce7f8;
-      font-weight: 600;
+      color: #244e41;
+      font-weight: 750;
     }
 
+    /* Highlighted Telegram button */
     .join-area {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 32px;
+      margin-top: 27px;
     }
 
     .telegram-button {
@@ -219,23 +259,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      width: min(100%, 370px);
-      min-height: 62px;
-      padding: 15px 22px;
+      gap: 11px;
+      width: min(100%, 390px);
+      min-height: 63px;
+      padding: 15px 20px;
       overflow: hidden;
-      border: 1px solid rgba(139, 218, 255, 0.38);
-      border-radius: 15px;
-      background: linear-gradient(135deg, #2aadeb, #1685d0);
-      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #29b0f3 0%, #168fe0 55%, #0878cb 100%);
+      color: #ffffff;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: 0.1px;
       box-shadow:
-        0 0 0 5px rgba(34, 158, 217, 0.07),
-        0 10px 35px rgba(18, 137, 209, 0.25);
+        0 0 0 5px rgba(22, 143, 224, 0.09),
+        0 12px 32px rgba(22, 143, 224, 0.27);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      animation: button-glow 3s ease-in-out infinite;
+      animation: telegram-glow 3s ease-in-out infinite;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -243,57 +283,94 @@
       content: "";
       position: absolute;
       top: -60%;
-      left: -70%;
-      width: 45%;
+      left: -85%;
+      width: 42%;
       height: 220%;
       transform: rotate(25deg);
-      background: rgba(255, 255, 255, 0.15);
-      transition: left 0.6s ease;
+      background: rgba(255, 255, 255, 0.20);
+      transition: left 0.65s ease;
       pointer-events: none;
     }
 
     .telegram-button:hover {
       transform: translateY(-3px);
       box-shadow:
-        0 0 0 6px rgba(34, 158, 217, 0.10),
-        0 15px 42px rgba(18, 137, 209, 0.38);
+        0 0 0 7px rgba(22, 143, 224, 0.11),
+        0 16px 38px rgba(22, 143, 224, 0.34);
     }
 
     .telegram-button:hover::before {
-      left: 130%;
+      left: 135%;
     }
 
     .telegram-button:active {
       transform: scale(0.98);
     }
 
+    .telegram-button:focus-visible {
+      outline: 3px solid #168fe0;
+      outline-offset: 5px;
+    }
+
     .telegram-button svg {
+      position: relative;
+      z-index: 1;
       flex-shrink: 0;
-      width: 24px;
-      height: 24px;
+      width: 25px;
+      height: 25px;
+    }
+
+    .telegram-button span {
+      position: relative;
+      z-index: 1;
     }
 
     .join-note {
       margin-top: 13px;
-      color: #8392a9;
+      color: #718a80;
       font-size: 11px;
     }
 
     .join-note span {
-      color: var(--green);
       margin-right: 5px;
+      color: #179d69;
+      font-weight: 800;
     }
 
+    .trust-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px 17px;
+      margin-top: 24px;
+      color: #52776a;
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .trust-line span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-line svg {
+      width: 14px;
+      height: 14px;
+      color: #219d6c;
+    }
+
+    /* Features */
     .features {
-      padding: 24px 0 40px;
+      padding: 24px 0 37px;
     }
 
     .section-heading {
-      margin-bottom: 19px;
-      color: #a9b7ca;
+      margin-bottom: 17px;
+      color: #52776a;
       text-align: center;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
@@ -301,124 +378,127 @@
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 15px;
     }
 
     .feature-card {
-      padding: 21px 18px;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      background: linear-gradient(
-        145deg,
-        rgba(22, 35, 55, 0.88),
-        rgba(12, 20, 34, 0.84)
-      );
-      transition: border-color 0.25s ease, transform 0.25s ease;
+      padding: 22px 19px;
+      border: 1px solid rgba(210, 235, 222, 0.95);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(67, 186, 245, 0.38);
+      transform: translateY(-4px);
+      border-color: #a9dfc1;
     }
 
     .feature-icon {
       display: grid;
       place-items: center;
-      width: 41px;
-      height: 41px;
+      width: 43px;
+      height: 43px;
       margin-bottom: 14px;
-      border: 1px solid rgba(67, 186, 245, 0.17);
-      border-radius: 12px;
-      background: rgba(67, 186, 245, 0.09);
-      color: #5dc2fa;
+      border: 1px solid #d7f0e2;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #effcf4, #e3f4ff);
+      color: #168b70;
     }
 
     .feature-icon svg {
-      width: 21px;
-      height: 21px;
+      width: 22px;
+      height: 22px;
     }
 
     .feature-card h2 {
-      margin-bottom: 7px;
+      margin-bottom: 6px;
+      color: #24483c;
       font-size: 14px;
-      font-weight: 750;
+      font-weight: 800;
     }
 
     .feature-card p {
-      color: var(--muted);
+      color: #70867e;
       font-size: 12px;
       line-height: 1.75;
     }
 
+    /* Second CTA */
     .bottom-cta {
-      padding: 0 0 35px;
+      padding: 0 0 32px;
       text-align: center;
     }
 
     .bottom-cta p {
-      margin-bottom: 12px;
-      color: #aab8ca;
+      margin-bottom: 13px;
+      color: #52776a;
       font-size: 13px;
+      font-weight: 650;
     }
 
     .bottom-cta .telegram-button {
-      width: min(100%, 310px);
-      min-height: 51px;
+      width: min(100%, 325px);
+      min-height: 53px;
       padding: 12px 17px;
-      border-radius: 12px;
+      border-radius: 13px;
       font-size: 13px;
     }
 
     .bottom-cta .telegram-button svg {
-      width: 21px;
-      height: 21px;
+      width: 22px;
+      height: 22px;
     }
 
+    /* Footer */
     footer {
-      padding: 21px 0 24px;
-      border-top: 1px solid rgba(132, 159, 198, 0.10);
+      padding: 20px 0 22px;
+      border-top: 1px solid #dceee6;
+      background: rgba(255, 255, 255, 0.48);
       text-align: center;
     }
 
     .footer-brand {
-      margin-bottom: 8px;
-      color: #b6c4d8;
+      margin-bottom: 7px;
+      color: #2a6652;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: 2px;
     }
 
     .disclaimer {
-      max-width: 620px;
+      max-width: 650px;
       margin: 0 auto;
-      color: #75839a;
+      color: #71877f;
       font-size: 10px;
       line-height: 1.8;
     }
 
     .copyright {
-      margin-top: 10px;
-      color: #56647a;
+      margin-top: 9px;
+      color: #84988f;
       font-size: 10px;
     }
 
-    @keyframes button-glow {
+    @keyframes telegram-glow {
       0%, 100% {
         box-shadow:
-          0 0 0 4px rgba(34, 158, 217, 0.06),
-          0 10px 30px rgba(18, 137, 209, 0.22);
+          0 0 0 4px rgba(22, 143, 224, 0.07),
+          0 10px 28px rgba(22, 143, 224, 0.22);
       }
+
       50% {
         box-shadow:
-          0 0 0 7px rgba(34, 158, 217, 0.10),
-          0 12px 36px rgba(18, 137, 209, 0.32);
+          0 0 0 7px rgba(22, 143, 224, 0.11),
+          0 13px 34px rgba(22, 143, 224, 0.30);
       }
     }
 
     @media (min-width: 768px) {
       .hero {
-        padding-top: 77px;
-        padding-bottom: 42px;
+        padding-top: 53px;
+        padding-bottom: 34px;
       }
 
       .hero-description {
@@ -426,8 +506,8 @@
       }
 
       .features {
-        padding-top: 26px;
-        padding-bottom: 45px;
+        padding-top: 25px;
+        padding-bottom: 43px;
       }
 
       .feature-card {
@@ -449,61 +529,92 @@
       }
 
       header {
-        padding: 17px 0;
+        padding: 15px 0;
       }
 
       .brand {
-        gap: 9px;
-        font-size: 13px;
-        letter-spacing: 1px;
+        gap: 8px;
+        font-size: 11px;
+        letter-spacing: 0;
       }
 
       .brand-icon {
-        width: 35px;
-        height: 35px;
+        width: 37px;
+        height: 37px;
+      }
+
+      .brand-icon svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .brand small {
+        font-size: 8px;
+        letter-spacing: 1.1px;
       }
 
       .status {
         gap: 6px;
         padding: 6px 8px;
-        font-size: 10px;
+        font-size: 9px;
       }
 
       .hero {
-        padding-top: 48px;
-        padding-bottom: 28px;
+        padding-top: 35px;
+        padding-bottom: 23px;
       }
 
       .eyebrow {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+        padding: 6px 10px;
         font-size: 9px;
-        letter-spacing: 1.2px;
+        letter-spacing: 1.1px;
       }
 
       h1 {
-        font-size: clamp(37px, 10vw, 50px);
-        letter-spacing: -1.8px;
+        font-size: clamp(35px, 9.4vw, 48px);
+        letter-spacing: -1.7px;
       }
 
       .hero-description {
-        margin-top: 17px;
+        margin-top: 15px;
         font-size: 13px;
-        line-height: 1.85;
+        line-height: 1.8;
       }
 
       .join-area {
-        margin-top: 26px;
+        margin-top: 24px;
       }
 
       .telegram-button {
-        min-height: 57px;
-        padding: 13px 14px;
+        min-height: 59px;
+        padding: 13px 12px;
+        gap: 9px;
         font-size: 13px;
       }
 
+      .telegram-button svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      .join-note {
+        font-size: 10px;
+      }
+
+      .trust-line {
+        gap: 8px 13px;
+        margin-top: 19px;
+        font-size: 10px;
+      }
+
       .features {
-        padding-top: 16px;
-        padding-bottom: 30px;
+        padding-top: 14px;
+        padding-bottom: 27px;
+      }
+
+      .section-heading {
+        margin-bottom: 12px;
       }
 
       .feature-grid {
@@ -514,15 +625,15 @@
       .feature-card {
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 14px;
-        border-radius: 14px;
+        gap: 13px;
+        padding: 13px;
+        border-radius: 15px;
       }
 
       .feature-icon {
         flex-shrink: 0;
-        width: 42px;
-        height: 42px;
+        width: 41px;
+        height: 41px;
         margin-bottom: 0;
       }
 
@@ -533,19 +644,15 @@
 
       .feature-card p {
         font-size: 11px;
-        line-height: 1.6;
-      }
-
-      .section-heading {
-        margin-bottom: 13px;
+        line-height: 1.65;
       }
 
       .bottom-cta {
-        padding-bottom: 28px;
+        padding-bottom: 25px;
       }
 
       footer {
-        padding: 18px 0 20px;
+        padding: 17px 0 19px;
       }
     }
 
@@ -564,7 +671,7 @@
 
 <body>
 
-  <!-- Meta Pixel fallback for browsers without JavaScript -->
+  <!-- Meta Pixel noscript fallback - UNCHANGED -->
   <noscript>
     <img
       height="1"
@@ -577,144 +684,231 @@
 
   <div class="page">
 
-    <!-- Decorative market chart -->
+    <!-- Decorative background chart -->
     <div class="chart-bg" aria-hidden="true">
-      <svg viewBox="0 0 1200 650" preserveAspectRatio="xMidYMid slice"
+      <svg viewBox="0 0 1200 570"
+           preserveAspectRatio="xMidYMid slice"
            xmlns="http://www.w3.org/2000/svg">
+
         <defs>
-          <pattern id="grid" width="65" height="65" patternUnits="userSpaceOnUse">
+          <pattern id="grid" width="65" height="65"
+                   patternUnits="userSpaceOnUse">
             <path d="M 65 0 L 0 0 0 65"
-                  fill="none" stroke="#7ea5d7" stroke-width="0.7"/>
+                  fill="none"
+                  stroke="#5cae8a"
+                  stroke-width="0.8"/>
           </pattern>
         </defs>
-        <rect width="1200" height="650" fill="url(#grid)"/>
-        <g stroke="#39d98a" stroke-width="2" fill="#39d98a">
+
+        <rect width="1200" height="570" fill="url(#grid)"/>
+
+        <g stroke="#21a878" stroke-width="2" fill="#21a878">
           <line x1="130" y1="260" x2="130" y2="350"/>
           <rect x="120" y="280" width="20" height="48" rx="1"/>
+
           <line x1="205" y1="220" x2="205" y2="315"/>
           <rect x="195" y="235" width="20" height="48" rx="1"/>
+
           <line x1="280" y1="250" x2="280" y2="390"/>
           <rect x="270" y="290" width="20" height="65" rx="1"/>
+
           <line x1="430" y1="150" x2="430" y2="275"/>
           <rect x="420" y="180" width="20" height="63" rx="1"/>
+
           <line x1="505" y1="125" x2="505" y2="240"/>
           <rect x="495" y="140" width="20" height="68" rx="1"/>
+
           <line x1="655" y1="100" x2="655" y2="225"/>
           <rect x="645" y="125" width="20" height="67" rx="1"/>
+
           <line x1="730" y1="135" x2="730" y2="260"/>
           <rect x="720" y="165" width="20" height="70" rx="1"/>
+
           <line x1="880" y1="70" x2="880" y2="185"/>
           <rect x="870" y="95" width="20" height="64" rx="1"/>
+
           <line x1="1030" y1="45" x2="1030" y2="165"/>
           <rect x="1020" y="65" width="20" height="70" rx="1"/>
         </g>
-        <g stroke="#43baf5" stroke-width="2" fill="#43baf5">
+
+        <g stroke="#168fe0" stroke-width="2" fill="#168fe0">
           <line x1="355" y1="195" x2="355" y2="315"/>
           <rect x="345" y="220" width="20" height="65" rx="1"/>
+
           <line x1="580" y1="160" x2="580" y2="295"/>
           <rect x="570" y="200" width="20" height="60" rx="1"/>
+
           <line x1="805" y1="105" x2="805" y2="230"/>
           <rect x="795" y="150" width="20" height="48" rx="1"/>
+
           <line x1="955" y1="50" x2="955" y2="175"/>
           <rect x="945" y="80" width="20" height="70" rx="1"/>
         </g>
+
         <polyline
           points="70,380 160,310 240,340 325,230 400,260 485,170 560,220 650,120 740,190 820,105 900,130 990,60 1100,75"
-          fill="none" stroke="#43baf5" stroke-width="3"
+          fill="none"
+          stroke="#168fe0"
+          stroke-width="3"
         />
       </svg>
     </div>
 
     <header>
       <div class="container nav">
-        <a href="#" class="brand" aria-label="Option Trader home">
+
+        <a href="#" class="brand" aria-label="Index Trading home">
           <span class="brand-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
                  aria-hidden="true">
               <path d="M3 17l6-6 4 4 8-9"/>
               <path d="M15 6h6v6"/>
             </svg>
           </span>
-          <span>OPTION TRADER</span>
+
+          <span>
+            INDEX TRADING
+            <small>WITH NITIN MURARKA</small>
+          </span>
         </a>
 
         <div class="status">
           <span class="status-dot"></span>
           Market Insights
         </div>
+
       </div>
     </header>
 
     <main>
+
+      <!-- Main hero: Telegram CTA appears above the fold -->
       <section class="hero container">
+
         <div class="eyebrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round"
                aria-hidden="true">
             <path d="M3 17l6-6 4 4 8-9"/>
             <path d="M15 6h6v6"/>
           </svg>
-          YOUR TRADING COMMUNITY
+          YOUR MARKET LEARNING COMMUNITY
         </div>
 
         <h1>
-          Trading Insights.<br>
-          <span class="gradient-text">Smarter Decisions.</span>
+          Index Trading.<br>
+          <span class="gradient-text">Smarter Perspectives.</span>
         </h1>
 
         <p class="hero-description">
-          Stock market ki duniya ko samjho better way mein.
-          Explore karo <strong>market insights, trading setups, chart analysis</strong>
-          aur useful market updates — ek hi jagah.
+          Nifty aur Bank Nifty market ko samjho ek better perspective ke saath.
+          Explore karo <strong>index analysis, trading setups, chart insights</strong>
+          aur market-related educational updates — ek hi jagah.
         </p>
 
         <div class="join-area">
+
+          <!-- Telegram link - UNCHANGED -->
           <a
             href="https://t.me/+m3o21OIQlWBiMzg9"
             class="telegram-button"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Join Option Trader on Telegram"
+            aria-label="Join Index Trading with Nitin Murarka on Telegram"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg viewBox="0 0 24 24"
+                 fill="currentColor"
+                 aria-hidden="true">
               <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
             </svg>
-            <span>Join Option Trader on Telegram</span>
+
+            <span>Join Our Telegram Channel</span>
           </a>
 
           <p class="join-note">
-            <span>✓</span> Market insights • Educational content
+            <span>✓</span>
+            Market insights • Educational content
           </p>
+
         </div>
+
+        <div class="trust-line">
+          <span>
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m5 12 4 4L19 6"/>
+            </svg>
+            Learn at your own pace
+          </span>
+
+          <span>
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="m5 12 4 4L19 6"/>
+            </svg>
+            Trade responsibly
+          </span>
+        </div>
+
       </section>
 
+      <!-- Features -->
       <section class="features container" aria-labelledby="features-title">
+
         <h2 class="section-heading" id="features-title">
           What You'll Explore
         </h2>
 
         <div class="feature-grid">
+
           <article class="feature-card">
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              <svg viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.8"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
                    aria-hidden="true">
                 <path d="M3 3v18h18"/>
                 <path d="M7 14l4-4 4 3 6-7"/>
                 <path d="M16 6h5v5"/>
               </svg>
             </div>
+
             <div>
-              <h2>Market Insights</h2>
-              <p>Market trends aur important updates ko samajhne mein help.</p>
+              <h2>Index Insights</h2>
+              <p>Nifty aur Bank Nifty ke trends aur market observations.</p>
             </div>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              <svg viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.8"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
                    aria-hidden="true">
                 <path d="M4 19V5"/>
                 <path d="M10 19V9"/>
@@ -723,31 +917,40 @@
                 <path d="M2 19h20"/>
               </svg>
             </div>
+
             <div>
               <h2>Trading Setups</h2>
-              <p>Educational trading ideas, charts aur technical analysis.</p>
+              <p>Educational trading concepts, chart patterns aur analysis.</p>
             </div>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              <svg viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="1.8"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
                    aria-hidden="true">
                 <rect x="3" y="4" width="18" height="17" rx="2"/>
                 <path d="M16 2v4M8 2v4M3 10h18"/>
                 <path d="m9 15 2 2 4-4"/>
               </svg>
             </div>
+
             <div>
               <h2>Market Updates</h2>
-              <p>Stock market se related useful information aur learning.</p>
+              <p>Market-related information aur ongoing learning resources.</p>
             </div>
           </article>
+
         </div>
       </section>
 
+      <!-- Second Telegram CTA - same link -->
       <section class="bottom-cta container">
+
         <p>Learn. Analyze. Trade Responsibly.</p>
 
         <a
@@ -755,34 +958,45 @@
           class="telegram-button"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Join Option Trader Telegram channel"
+          aria-label="Join Index Trading Telegram channel"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+               fill="currentColor"
+               aria-hidden="true">
             <path d="M21.8 3.3a1.5 1.5 0 0 0-1.55-.23L2.5 10.1c-1.25.5-1.23 1.22-.22 1.54l4.56 1.42 1.74 5.44c.22.6.11.84.74.84.49 0 .7-.22.97-.48l2.22-2.16 4.62 3.41c.85.47 1.46.22 1.67-.79l3.03-14.3c.3-1.3-.49-1.89-1.03-1.72ZM8.14 12.73l10.04-6.34c.5-.3.96-.14.58.2l-8.3 7.5-.32 3.45-2-4.81Z"/>
           </svg>
-          <span>Join Our Telegram Channel</span>
+
+          <span>Join on Telegram</span>
         </a>
+
       </section>
+
     </main>
 
     <footer>
       <div class="container">
-        <p class="footer-brand">OPTION TRADER</p>
+
+        <p class="footer-brand">
+          INDEX TRADING WITH NITIN MURARKA
+        </p>
 
         <p class="disclaimer">
           Disclaimer: All content is for educational and informational purposes
           only and should not be considered financial or investment advice.
-          Trading in stocks and options involves significant risk, including
-          possible loss of capital. No profits or returns are guaranteed.
-          Please do your own research and consult a qualified financial advisor
-          before making investment decisions.
+          Trading in stocks, indices, and options involves significant risk,
+          including possible loss of capital. No profits or returns are
+          guaranteed. Please do your own research and consult a qualified
+          financial advisor before making investment decisions.
         </p>
 
         <p class="copyright">
-          &copy; <span id="year">2026</span> Option Trader. All rights reserved.
+          &copy; <span id="year">2026</span>
+          Index Trading with Nitin Murarka. All rights reserved.
         </p>
+
       </div>
     </footer>
+
   </div>
 
   <script>
@@ -790,6 +1004,7 @@
     document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
+
 </body>
 </html>
 ```
